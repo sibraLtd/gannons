@@ -1,0 +1,3665 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28-Feb-2015, 13:08:39
+    Author     : Simon
+*/
+
+
+@import "compass";
+
+/*** Variables **/
+/*** http://www.sessions.edu/color-calculator ***/
+
+$MishconRed: #D3470B;
+/** triadic so blue is #470BD3 and green is OBD347 ***/
+
+/** 
+
+/** Triad on Kuler  blue is 000A86 and dark brown: 863714 and backColor is ffd700 and this works ***/
+/** Tetrad on palleton.com: blue is 105288, dark orange is: D37F0B, and Green is 079059 **/
+
+$GannonsRed: $MishconRed;
+$GannonsNavyBlue: #105288;
+
+$GannonsDarkBrown: #D37F0B ;
+
+$backColor:#079059;
+
+$GannonsBullet: $GannonsRed;
+
+$GannonsLink: $GannonsNavyBlue;
+$GannonsLinkHover: $GannonsDarkBrown; 
+$GannonsLinkGreyBack: lighten( $GannonsNavyBlue, 40%);
+
+$sibra-font-family: 'GillSansMTStd-Medium', sans-serif !important;
+
+/** $GannonsSearch: $GannonsNavyBlue; original colour **/
+
+$GannonsSearch:  rgba(50, 55, 81, 0.63);  // #323751 from employment.jpg through http://labs.tineye.com/ and 63% transparency. 
+
+
+$GannonsTitle: $GannonsRed; 
+
+$textColor: #272D34;
+$textColorSidebar: #272D34;
+
+$textColorRightSidebar: white;
+
+// this works: rgba(184,184,184,0.9);
+$backgroundGrey: rgba(59,59,59,1);
+// cahterine wants #3b3b3b which is 59 59 59 which is too black. 
+
+$baseFontSize: 16px;
+$baseLineHeight: 26px;
+$marginBottom: $baseLineHeight; 
+
+$smallText: 14px; 
+$h1Size: 22px;
+$h2Size: 18px;
+$h3Size: 16px;
+
+$marginLeftList: 15px;
+
+$searchTextBoxWidth980: 500px;
+$searchTextBoxWidth480: 350px;
+$searchTextBoxWidth280: 200px;
+
+
+@mixin GannonsBullet {
+    list-style: none;
+    margin-left: $marginLeftList;
+    line-height: $baseLineHeight - 1px;
+    &:before {
+            font-family: 'FontAwesome';
+            content: '\f140';
+            color: $GannonsBullet;
+            font-size: 0.62em;
+            display: inline-block;
+            // width: $marginLeftList -2px;
+            // margin-left: 1px - $marginLeftList;
+            width: $marginLeftList;
+            margin-left:  - $marginLeftList;
+            position: relative;
+            bottom: 0.19em;
+            padding-right: 5px;
+        }
+}
+@mixin GannonsLink {
+    color: $GannonsLink;
+    font-weight: 700;            
+    &:hover {
+        color: $GannonsLinkHover;        
+        background: none; 
+        text-decoration: none;
+               // border: 1px solid red;
+    }
+}
+
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+   @include border-radius(10px);
+        font-size: 1.3em;
+        padding: 10px 15px;
+        &:hover {
+            text-decoration: none; 
+        }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $color;
+    background-color: darken($background, 10%);
+        border-color: darken($border, 12%);
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: $background;
+          border-color: $border;
+    }
+  }
+p {
+    padding: 20px 20px ;
+}
+  .badge {
+    color: $background;
+    background-color: $color;
+  }
+}
+
+@mixin greyBox {
+    @include border-radius(4px);
+    border: 1px solid gray;
+    overflow: hidden;
+    background-color: $backgroundGrey !important;
+  }
+
+/** TYPOGRAPHY **/
+ 
+  @font-face {
+      font-family: $sibra-font-family;
+      font-style: normal;
+      font-weight: 400; 
+  }  
+// font-family: 'Gill Sans Std Bold'
+// font-family: 'Gill Sans Pro Cyrillic Medium'
+// font-family: 'Gill Sans WGL Regular'
+// font-family: 'Gill Sans Std Light'
+
+
+//font-family: 'Gill Sans Std Book'
+//font-family: 'Gill Sans Std Roman'
+//font-family: 'Gill Sans Std Infant'
+//font-family: 'Gill Sans Std Light'
+
+/*==========================================================================================
+	
+This file contains styles related to the colour scheme of the theme and came from colors.php, which is a deregistered script. 
+
+==========================================================================================*/
+h3.page-title + p {
+    color: white;
+}
+#main {
+    background:#ffffff;
+}
+.header-phone .fa-circle, .header-email .fa-circle{
+    color:$MishconRed;
+}
+.header-phone .fa-phone, .header-email .fa-envelope{
+    color:#272d34;
+}
+
+.view-more a{border:3px solid $MishconRed;
+background:$MishconRed;
+color:#ffffff;}
+
+.view-more a:hover{color:$MishconRed;}
+
+.about-section{border-bottom:1px solid #c5c5c5;}
+.about-section:after {
+    background-color: $MishconRed;
+    bottom: -3px;
+    content: "";
+    height: 5px;
+    left: 50%;
+	margin-left:-50px;
+    position: absolute;
+    width: 100px;}
+.about-title h3{color:#000a86;}
+.circle-icon{border:5px solid $MishconRed;}
+
+.gal-btn{
+    border:3px solid #ffffff;
+    color:#ffffff;
+}
+
+.faq-title{border-bottom:1px solid #c5c5c5;}
+.faq-title a{color:#000a86;}
+.faq-title a:hover, .active a{color:$MishconRed;}
+
+.case{border-bottom:1px solid #c5c5c5;}
+.case:after{
+    background-color:$MishconRed;
+    bottom: -3px;
+    content: "";
+    height: 5px;
+    left: 50%;
+	margin-left:-50px;
+    position: absolute;
+    width: 100px;
+}
+.case-2col-title, .case-1col-title{color:#000a86;}
+.case-verdict{
+    color:#ffffff;
+    border:3px solid #ffffff;
+}
+
+.blog-post{border-bottom:1px solid #c5c5c5;}
+.blog-button a{border:3px solid $MishconRed;
+color:$MishconRed;}
+.blog-button a:hover{background:$MishconRed;
+color:#ffffff;}
+
+.widgettitle, .single-page-tags{color:#000a86;}
+.widget_categories ul li a, .widget_archive ul li a, .widget_recent_entries ul li a{color:#272d34;}
+.widget_categories ul li a:hover, .widget_archive ul li a:hover, .widget_recent_entries ul li a:hover{color:$MishconRed;}
+.widget_categories ul li:before, .widget_archive ul li:before, .widget_recent_entries ul li:before {
+    font-family: FontAwesome;
+	content: "\f105";
+    display: inline-block;
+    padding-right: 8px;
+	color:$MishconRed;}
+.widget_tag_cloud a, .tagcloud a{
+    border:3px solid $MishconRed;
+    background:$MishconRed;
+    color:#ffffff;}
+.widget_tag_cloud a:hover, .tagcloud a:hover{color:$MishconRed;
+background:none;
+text-decoration:none;}
+
+
+#search-string{border:3px solid #c5c5c5;}
+
+.comm-title{border-top:1px solid #c5c5c5;}
+.comment-right{border:1px solid #c5c5c5;}
+.comment-author cite, .comment-author .author a:link{color:#000a86;}
+.comment-date {color:#c5c5c5;}
+.comment-avatar img{border:3px solid $MishconRed;}
+.comment-reply-link:before{font-family: FontAwesome;
+	content: "\f112";
+    display: inline-block;
+    padding-right: 8px;
+	color:$MishconRed;}
+
+
+
+.contact-right ul li span{color:$MishconRed;}
+
+#footer-var1, #footer-var2{
+    background:#272D34;
+    color:#ffffff;}
+
+.foo-block .widgettitle{color:#ffffff}
+
+.contact-field, #msg-evaluation{color: #ffffff;
+background:#404a55;}
+
+.comm-field, #msg-contact{border:1px solid #e5e5e5;
+background:#ffffff;
+color:#ffffff;}
+
+#contact-form-holder label{color:#000a86;}
+
+#submit-evaluation, #submit-contact, #submit{border:3px solid $MishconRed;
+color:$MishconRed;}
+
+#submit-evaluation:hover, #submit-contact:hover, #submit:hover{background:$MishconRed;
+color:#ffffff;}
+
+.footer-social li a{color:#ffffff;}
+.footer-social li a:hover{color:$MishconRed;}
+
+.foo-copyright{color:#272d34;}
+
+.output2{border:1px solid $MishconRed;
+color: $MishconRed;}
+
+.page-numbers, .page-numbers:hover{ border: 3px solid $MishconRed;
+color: $MishconRed;} 
+.page-numbers:hover, .current, .current:hover{color:#ffffff;
+background:$MishconRed;
+border: 3px solid $MishconRed;}
+
+.no-page-title h1{color: #c5c5c5;margin-bottom:32px;
+font-size:180px;}
+
+.scrollup i {color: $MishconRed;
+background:#272d34;}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    opacity: 0.7;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    opacity: 0.7;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    opacity: 0.7;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    opacity: 0.7;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    opacity: 0.7;
+}
+/* colours.php ends here */
+
+@media (max-width: 767px) {
+.menu-nav ul {border:none;}
+.navbar-collapse{background:#272d34;}
+}
+
+html {     
+    -webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing: grayscale;
+} 
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25), 
+only screen and ( min-device-pixel-ratio: 1.25), 
+only screen and ( min-resolution: 200dpi), 
+only screen and ( min-resolution: 1.25dppx) {    
+    -webkit-font-smoothing: subpixel-antialiased; } 
+  
+body {
+    background:#ffffff;
+    font-family: $sibra-font-family;
+    font-size:  $baseFontSize;
+    line-height: $baseLineHeight; 
+    p,  h1, h2, h3, h4, h5, h6, .flex-caption h3, flex-slider, .flex-slider input,
+    .page-head, .page-head h1, .page-head h2, .page-head h3, .page-head h4, .page-head h5,
+    .page-head h6, .page-head h7, .flex-caption h1, .flex-caption h4 {
+        // font-family: $sibra-font-family;
+        }
+        p {
+            font-size: $baseFontSize;
+            line-height: $baseLineHeight;
+            margin-bottom: $marginBottom;
+            font-weight: 400;
+            padding: 0;
+            text-align: left;
+        }
+        .page-content {
+            h1, h2, h3, h4, h5, h6 {
+                line-height: $baseLineHeight;
+                margin-bottom: 0;
+                font-weight: 700;
+                color: $GannonsTitle;
+            }
+            h1 {
+                font-size: $h1Size;
+            }
+            h2 {
+                font-size: $h2Size; 
+            }
+            h3 {
+                font-size: $h3Size;
+            }
+            h4 {
+                font-size: $h3Size;
+                font-weight: normal;
+               // text-decoration: underline;
+            }
+            p + h4 {
+                margin-top: -$baseLineHeight;
+            }
+            h2 + ul, h2 + ol, h3 + ol, h3 + ul, h4 + ol, h4 + ul, h5 + ol, h5 + ul, h6 + ul, h6 + ol  {
+                margin-top: 0; 
+            } 
+            ol.marginBottom li > ul {
+                margin-bottom: $baseLineHeight; 
+            }
+            ul, ol {
+                font-size: $baseFontSize;
+                line-height: $baseLineHeight;
+                color: $textColor; 
+                margin-bottom: $marginBottom;
+                margin-top:-$marginBottom;
+                margin-left: 5px;
+                li > ul, li > ol {
+                    margin-top: 0px;
+                    margin-bottom:0px;        
+                }
+            }
+            ol {
+                   margin-left: $marginLeftList; 
+                }
+
+    } 
+    .middle {
+        .page-title2 {
+        font-size: $h1Size;
+        line-height: $baseLineHeight;
+        margin-top: 0px;
+        color: $GannonsTitle;
+        font-weight: bold;
+            a {
+               @include GannonsLink; 
+            } 
+        }
+        h2 {
+            font-size: $h2Size  !important;
+            line-height: $baseLineHeight;
+        } 
+        h3 {
+            font-size: $h3Size;
+            line-height: $baseLineHeight;
+        }
+        p, ul li  {
+            font-size: 1 * $baseFontSize;
+            line-height: $baseLineHeight;
+            } 
+        
+ 
+    .affix {
+        position: static; 
+    }
+} 
+
+#blog-data, .blog-articles .blog-date {
+            margin-top: 0;
+            list-style: none;            
+            line-height: $baseLineHeight;
+            color: $textColor;
+            margin: 0;
+            li, li i  {
+                color: $textColor;
+                display: inline;
+                list-style-type: none;
+                font-size: $smallText;
+                margin: 0;
+                width: auto;
+                padding-right: 4px;
+             }
+             li {
+                 padding-right: 10px;
+             }
+            li a {
+               @include GannonsLink; 
+            }
+            li:before {
+                content: " ";
+            }
+        }
+     // keep rightColumn, but make it static on small screens.
+    }
+
+
+a, .leftColumn .leftSidebar .ubermenu-content-block.ubermenu-custom-content.ubermenu-custom-content-padded a {
+    @include GannonsLink;
+}
+
+
+ol  > ul, ul  > ol {
+    margin-top:0;    
+}
+.page-content .contentBlog {
+    ol {
+        margin-left: $marginLeftList;
+    }
+    ul li {
+    @include GannonsBullet;
+    }
+}
+
+.content-holder {
+    .fullWidth {
+        width: 100%;
+        margin-bottom: 30px;
+    }    
+    ol {
+         margin-left: $marginLeftList;
+    }
+    ul {
+        list-style: none;
+    li {
+        @include GannonsBullet;                
+        }
+    }
+    .services-box {
+            @include greyBox;  
+            padding: 10px;
+            p, li {
+                color: white;
+            }
+            a, a span {
+                color: $GannonsLinkGreyBack;
+                font-weight: 400;
+                margin-bottom:0.5em;
+                &:hover {
+                    color: $GannonsLinkHover;
+                }
+            }
+        }
+        .services-box2 {
+            @include greyBox;
+            background-color: $GannonsLinkGreyBack !important;
+            padding: 10px;
+            p, li {
+                color: white;                
+            }
+             a, a span {
+                color: $GannonsNavyBlue;
+                font-weight: 400;
+                margin-bottom:0.5em;
+                &:hover {
+                    color: $GannonsLinkHover;
+                }
+            }
+            
+        }
+}
+
+
+.breadcrumbs {
+    margin-top: 0px;
+    margin-bottom: $smallText;
+    font-size: $smallText;
+    font-weight: 700;
+    line-height: 1.3em;
+    a {
+         @include GannonsLink; 
+    }
+}
+
+h3.section-title {
+     color: $GannonsTitle;
+     margin-bottom: 0;
+ }
+ .lawyer-title {
+     color: $textColor;
+ }
+ 
+html, body, footer-var2 footer-content {
+    height: 100%;
+}
+
+
+/* margin above social media icons in footer */
+.footer-social.alignc {
+    margin-top: 0px;
+    display: none;
+}
+foot-copyright.alignc {
+    margin-bottom: 10px
+}
+
+.header-phone {
+    a {
+       @include GannonsLink;
+        color: $GannonsLinkGreyBack;        
+    }      
+}
+
+#logo {
+    margin: 24px 0;
+}
+
+.page-head {
+    margin-bottom:0;
+    font-family: $sibra-font-family;
+}
+.menuFixed {
+    background: $textColorSidebar;
+    min-width: 100%;
+    
+    
+    .navbar.navbar-custom {
+        margin-top: 0; 
+    }
+}
+.menuFixed.affix {
+        top: 0px;
+        z-index: 5000;
+    }
+
+.logged-in .menuFixed.affix {
+        top: 32px;
+        z-index: 5000;
+    }
+
+/**** z-index for menus and sidebars **/
+.menuFixed.affix, .menuFixed.affix-top {
+    .navbar-custom, .navbar-toggle, #collapse-navigation {
+   z-index: 6000;
+    nav {
+       z-index: 7000;
+        ul li {
+       //     z-index: 8000;
+            ul li {
+        //        z-index: 9000;
+                ul li {
+          //          z-index: 10000;
+                }
+            }
+        }
+    }
+}
+}  
+    
+.navbar-collapse {
+    padding-right: 0;
+    
+}
+/*** Gannons New Hopefully independent and done right *****/
+
+/** Menu variables *****/
+/** background should be $textColorSidebar
+$GannonsRed: $MishconRed;
+$GannonsNavyBlue: #105288;
+
+$GannonsDarkBrown: #D37F0B ;
+
+$backColor:#079059;
+
+$backgroundGrey is $backgroundGrey: rgba(59,59,59,1); which is 3b3b3b
+
+$GannonsBullet: $GannonsRed;
+
+$GannonsLink: $GannonsNavyBlue;
+$GannonsLinkHover: $GannonsDarkBrown; 
+$GannonsLinkGreyBack: lighten( $GannonsNavyBlue, 40%);
+***/
+$flyMenuItemPad: 5px 0px 0px 20px; 
+$paddingIndent: 5px 0px 0px 20px;
+$paddingDoubleIndent: 0px 0px 0px 10px;
+    #ubermenu-main-277-primary-menu  {
+        font-family: $sibra-font-family;
+        background-color: $backgroundGrey;
+        ul {
+            /* Company, Contracts, Litigation etc, top level of menu bar */
+            li  {   
+                a {
+                    color: $GannonsLinkGreyBack;
+                    font-weight: 400;
+                    padding: 15px 8px 15px 8px;
+                    &:hover {
+                        color: $GannonsLinkHover;
+                    }
+                    span {
+                       text-align: center;
+                       padding-right: 15px;
+                       // border: 2px solid yellow;                       
+                    }
+                }
+                ul {
+                    background-color: $backgroundGrey;
+                    padding-bottom: 10px;
+                        .teamRow {
+                             .team {
+                                    line-height: 1.2;
+                                    margin-bottom: 5px;
+                                    margin-top: 64px;
+                                    margin-left: 20px;
+                                    font-size: 20px;
+                                    color: white;
+                                }
+                            menuMargin p {
+                                color: white;
+                                font-size: 20px;
+                                line-height: 1.2em;                               
+                                margin: 64px 10px 10px 20px;                                     
+                                }
+                            h2 {
+                                font-size: 28px;
+                                line-height: 1.2em;
+                                color: white;                                   
+                            }                                
+                            .menuCentre {
+                                text-align: center;
+                                padding-top: 0;
+                                line-height: 1em;
+                                margin-bottom: 0;
+                                color: white;
+                            }
+                        }
+                        .testimonial {
+                            padding-top: 30px;
+                            font-size: 18px;
+                        }
+                    li {
+                        /* The whole flyout, left and right box under Company etc */
+                        a {
+                            color: $GannonsLinkGreyBack;
+                        }
+                        ul {
+                            background-color: $backgroundGrey;
+                            
+                            &.deal {
+                                margin-bottom: 0;
+                                margin-top: -10px;
+                                
+                                .overviewEvents {
+                                    .cases {
+                                        font-size: 18px;
+                                        color: white;
+                                        }
+                                    }
+                                }
+                            .teamRow {
+                                .menuMargin p {
+                                color: white;
+                                font-size: 20px;
+                                line-height: 1.2em;                               
+                                margin: 64px 10px 10px 20px;                                     
+                                }
+                                h2 {
+                                    font-size: 28px;
+                                    line-height: 1.2em;
+                                    color: white;                                   
+                                }                                
+                                .menuCentre {
+                                    text-align: center;
+                                    padding-top: 0;
+                                    line-height: 1em;
+                                    margin-bottom: 0;
+                                    color: white;
+                                }
+                            }
+                            .newsArticles li ul li a {
+                                padding-left: 0px;
+                            }
+                        li {
+                            /* the elements in the left hand side drop down. */ 
+                            background-color: $backgroundGrey;
+                            font-size: 18px;
+                            color: $GannonsLink;
+                            a {
+                                /* each element in the left hand flyout */
+                               padding: 15px 0px 15px 20px; 
+                            }
+                            ul {
+                                /* The entire flyout to the right hand side */
+                                background-color: $backgroundGrey;
+                            li {
+                                border: none;
+                                a {
+                                        text-align: left;
+                                        padding: 0px; 
+                                        line-height: 1em;
+                                    }
+                                    .ubermenu-custom-content {
+                                        padding: 0px;
+                                        h3 {
+                                        /* The h3 title tag for Services, Insights, Case studies */
+                                        font-size: 18px;
+                                        color: $GannonsRed; 
+                                        padding: $flyMenuItemPad;  
+                                        }
+                                    }  
+                                    ul {
+                                        padding: 0px;
+                                        border: none;
+                                       li {
+                                        /* each item in the flyout */
+                                        border: none;
+                                        font-size: 16px; 
+                                        border: none; 
+                                        padding: 0px;
+                                        a {
+                                            padding: $flyMenuItemPad;
+                                            border: none;
+                                            span {
+                                                text-align: left;
+                                            }
+                                        }
+                                        ul li {
+                                            /* indented items in first column */
+                                            border: none;
+                                            font-size: 16px; 
+                                            padding: 0px;
+                                            a {
+                                                padding: $paddingIndent;
+                                            }
+                                            ul li {
+                                                /* double indented items in pages column */
+                                                padding: $paddingDoubleIndent;
+                                                border: none;
+                                            }
+
+                                    }
+                                }  
+                            }
+                        }
+                        }
+                    }
+                    }
+                }
+            }
+        } 
+    }
+}
+
+
+.ubermenu-tab-content-panel {  // this is the tab control panel. 
+    font-family: $sibra-font-family;
+    .ubermenu-item {
+        ul.ubermenu-submenu {  // the main UL block of the menu block in the flyout tab. 
+                               
+            li a {
+                padding-top: 15px;  // the top menu item of the block, e.g. business contracts. 
+                padding-left: 0px; // changed this. 
+                padding-bottom: 5px;
+                padding-right: 0px;
+                color: #888;
+                    
+            }
+            .ubermenu-submenu {  // the next level down
+                padding-top: 0; 
+                
+                a {
+                    padding: 0 0px 0 10px;
+                }
+                .ubermenu-submenu {  // the next level down
+                padding-top: 0;
+                padding-bottom: 0px;                               
+                }
+            }
+        }
+    }
+}
+
+/* about us -> overview flyout custom content with Catherine's statmenent' */
+.ubermenu-content-block.ubermenu-custom-content {
+    font-family: $sibra-font-family;
+    .aboutus {
+        width: 37%;
+        font-size: 12px;
+        float:right;
+        p{
+            display:block;
+            width: 100%;
+            margin:0;
+            padding:0;
+            font-size:12px;
+        }
+        .signature {
+            width: 38%;
+            float:left;
+            clear:both;
+              }
+    }    
+}
+/*insights/latest thinking 10379 */
+li.ubermenu-item.ubermenu-item-type-custom {
+    font-family: $sibra-font-family;
+    div.ubermenu-content-block.ubermenu-custom-content{
+        &.ubermenu-custom-content-padded { // make sure top level insights columns is set to padded. 
+            padding: 10px 2px 0 0px;
+            
+            p.menuTitle {
+            
+            font-size: 12px;
+            
+            line-height: 1.5em;
+            text-align: left;
+            a {
+            width: 100%;
+            font-size:12px;
+            font-weight: normal;
+            padding: 0;
+            margin: 0;
+            
+            white-space: nowrap;
+            &:hover {
+                font-weight: 700;
+                text-align: left !important;
+                text-decoration: none; 
+                text-decoration-style: inherit;
+            }
+            }
+            &.sidebar {
+                font-size: 16px;
+                line-height: 26px; 
+                padding-left: 12px; 
+                padding-top: 8px;
+                color: #666;
+            }
+        }        
+        }
+        
+        
+    > p.menu  {
+        width: 100%;
+        font-size:12px;
+        padding: 0;
+        margin: 0;
+        line-height: 1.5em;
+        &.negMargin {
+            margin-left: -15px;
+        }
+        a {
+            width: 100%;
+            font-size:12px;
+            font-weight: normal;
+            padding: 0;
+            margin: 0 0 0 0px;
+            color: #000;
+            padding-left: 0;
+            line-height: 1.5em;
+            text-align: left;
+            white-space: nowrap;
+            &:hover {
+                font-weight: 700;
+                text-align: left !important;
+                text-decoration: none; 
+                text-decoration-style: inherit;
+            }
+        }
+        
+    }
+}
+}
+/* CSS for list of sservices for a particular page. Add menuServices class to menu item, and internal page links to each service below.  */
+.menuServices li.ubermenu-item-type-custom {
+    font-family: $sibra-font-family;
+    margin-left: -49px; 
+    margin-right: 0px;
+    @include greyBox;
+    @include GannonsLink;
+    border: 0;
+    @include border-radius(0px);
+    h3 {
+        margin-left: 10px;
+    }
+    a {
+        color: $GannonsLinkGreyBack !important;
+        margin-left: 10px;
+    }    
+}
+/* .last class on last item to give it 10px bottom margin. last-of-type doesn't work */ 
+ li.ubermenu-item.ubermenu-item-type-custom.last {
+         margin-bottom: 10px;
+}
+/* make everybox in the menu .overviewCustom, and then style each menu */
+.overviewCustom, .overviewEvents {
+    font-family: $sibra-font-family;
+    width: 71%;
+    float: left;
+   h3 {
+        font-size: 20px;
+        margin: 0;
+        font-weight: bold;
+        &.vacancies {
+            margin-bottom: 0px;
+            padding-left: 15px;
+        }
+        &.aboutUsOverview, &.servicesOverview {
+            margin-top: 15px;
+            padding-left: 15px
+        }
+        &.cases {
+            padding-left: 10px;
+        }
+    }
+     p {
+        width: 100%; 
+        font-size: 14px;
+        padding:0;
+        margin:0 0 7px 0px;
+        font-weight: bold;
+        line-height: 1.5em;
+        text-align: left;
+        &.aboutUsOverview, &.servicesOverview {
+            padding-left: 15px;            
+        }
+        &.cases {
+            padding-left: 10px;
+            font-weight: 400;
+        }
+        &.small {
+            width: 38%;
+            font-size: 12px;
+            margin-bottom: 0;
+            padding: 0 10px 0px 10px;
+            display: block;
+            float: left;
+            
+        }
+        &.join {
+            margin: 0 0 7px 0px; 
+            padding: 0 0 0 15px;
+            font-weight: 400;
+        }
+        &.team {
+            padding: 7px 0px 0 20px;
+            margin-bottom: 0px;
+            font-weight: 400;
+         }
+    }
+}
+/** Team Menu **/ 
+/** middle box team menu flyout **/
+.teamRow {
+    font-family: $sibra-font-family;
+    padding-top: 20px;
+    .menuMargin {
+        p.team {
+            line-height: 1.2;
+            margin-bottom: 5px;
+            margin-top: 64px;
+            margin-left: 20px;
+            font-size: 20px;
+        }
+}   
+.logoFlyout2 {
+        margin-right: 20px;
+        img {
+        width: 100%;       
+        }
+    } 
+}
+    
+@media (min-width: 930px) and (max-width: 1200px) {
+    p.menuCentre {
+        font-size: 14px;
+    }
+}
+li.menuLeft ul li,
+li.menuRight ul li,
+li.menuMiddle ul li {
+    margin-top: 0px !important;
+    div {
+        padding-right: 0;
+         padding-top: 0 !important;
+        .menuCentre {
+            text-align: center;
+            padding-top: 0;
+            line-height: 1.0; 
+            height: 2.2em;
+            margin-bottom: 0;
+        }
+    }
+    ul {
+    padding-left: 0 !important;
+    padding-top: 0 !important;
+    li a {
+        padding: 0 0 0 0 !important;
+        img.ubermenu-image.ubermenu-image-size-full {
+           max-width: 100px;
+           width: 90%;
+            }
+        }
+    }
+}
+
+li.menuRight ul li {
+   ul li a img.ubermenu-image.ubermenu-image-size-full {
+        max-width: 84px;
+        width: 74%;  
+           }
+} 
+
+.logoFlyout {
+    width: 14%;
+    float: right;
+    &.teamPage {
+        width:38%;
+        margin-left: 10px;
+        font-size: 14px;
+        font-weight: 700;
+        
+    }
+    img {
+        width: 100%;
+    }
+        
+}
+.overviewEvents {
+    width: 100%;
+    font-weight: 400;
+    h3 {
+        font-size: 16px;
+        padding-left: 17px;
+        font-weight: 400;
+        
+    }
+    p {
+        padding-left: 17px;
+        margin-bottom: 7px;
+        font-weight: 400;
+    }
+}
+/**** JOIN US FLYOUT  TESTIMONIALS FLYOUT  ****/
+#menu-item-11017, #menu-item-11050 {
+    font-family: $sibra-font-family;
+    h2 {
+        font-size: 16px;
+        padding: 10px 10px 0 10px;
+    }
+    p {
+        font-size: 14px;
+    }
+    
+}
+.ubermenu-submenu-id-9994 {
+        font-size: 14px;
+        h2.vacancies {
+            
+            margin-bottom: -30px;
+        }
+    }
+
+/* Bodge for corporate item */
+#menu-item-9861 {
+    width: 100%;
+}
+#header-bar {
+    background:#272d34;
+    color:#999999;    
+    nav {
+        z-index: 2000;
+    }
+}
+/* In the news menu */
+.ubermenu-submenu .ubermenu-item .ubermenu-content-block.ubermenu-custom-content {
+    a {
+        padding-top: 0;
+        color: #666;
+        padding-bottom: 15px;
+        &:hover {
+            font-weight: 700;
+            text-decoration: none; 
+        }
+    }
+}
+/* set height of flyout for IN THE NEWS */
+#menu-item-9672  .ubermenu-tab-content-panel.ubermenu-column.ubermenu-submenu-type-tab-content-panel.ubermenu-autoclear {
+    height: 325px;
+}
+/** set style for employmment/ employers #menu-item=15642 is an li  employees is menu-item-15641**/
+/** make selectors a to see if there is a problem **/
+#header-bar .container .row {
+    border-bottom: none;
+}
+
+/*** UBERMENU SIDEBAR MENU ****/
+.ubermenu .ubermenu-autocolumn, .ubermenu .ubermenu-submenu-type-stack {
+    font-family: $sibra-font-family;
+    padding-bottom: 0px;
+    &.shiftRight {
+        padding-left: 10px;
+    }
+    
+}
+.ubermenu .ubermenu-item-type-column > .ubermenu-submenu-type-stack
+> .ubermenu-item-normal:first-child {
+    margin-top: 0px;
+}
+    > li.shiftRight {
+    padding-left: 10px;
+}
+
+nav.ubermenu.ubermenu-sidebar-menu,
+nav.ubermenu.ubermenu-team-leftside,
+nav.ubermenu.ubermenu-case-study-menu,
+nav.ubermenu.ubermenu-author,
+nav.ubermenu.ubermenu-aboutgannons {
+    font-family: $sibra-font-family;          
+    .ubermenu-has-submenu-stack {
+            padding-bottom: 0px;  // gannons services employment
+            // border: 1px solid red;
+            ul {
+                padding-top: 0px;
+                padding-left: 30px; 
+             // border: 1px solid blue;
+            }
+            .ubermenu-has-submenu-stack {
+                padding-bottom: 0px; 
+                ul {
+                    padding-top: 0px; 
+                //    border: 1px solid green;
+                     padding-left: 8px;                    
+                }
+                .ubermenu-has-submenu-stack {
+                    ul {
+                   //    border: 1px solid yellow; 
+                        padding-bottom:$baseFontSize/2;
+                        padding-left: 12px;
+                    }
+                    .ubermenu-has-submenu-stack {
+                    //     border: 1px solid pink; 
+                    }
+                }
+            }
+        }
+        // target insights current item
+        ul.ubermenu-submenu {
+            li.ubermenu-item.ubermenu-current-menu-item > a.ubermenu-target {
+                @include GannonsLink; // current menu item in sidebar
+                color: $GannonsTitle;
+                font-weight:700;             
+            }
+        }
+        
+        .ubermenu-current_page_item > a > span {
+                  color: $GannonsTitle; 
+                  font-weight: 700;
+        }
+        .orangeMenuBox {
+            background-color: $GannonsRed;
+            padding: 10px 10px 10px 15px;
+            margin-bottom: 26px;
+                h3, ol li {
+                color: white;
+                }
+                ol li{
+                    font-weight: 400;
+                }
+        }
+        // ul.ubermenu-nav is whole sidebar
+        // li.ubermenu-item is the menu segment. 
+        
+    ul.ubermenu-nav li.ubermenu-item {  
+        ul.ubermenu-submenu { 
+            // whole menu segment
+           
+          ul.ubermenu-submenu {
+              //block of items below lead item and other items.
+              padding-left: 7px !important;              
+          }
+        }        
+        a.ubermenu-target {  // Sidebar menu top level pretty much all items. 
+            padding: 0; 
+            @include GannonsLink;            
+            .fa {
+                   width: 17px;
+               }
+            &::after {
+                content: '' ;             }  /// Corporate            
+            .fa.fa-hand-o-right, .fa.fa-hand-o-left {
+                    // font-size: 0.71em;
+                    width: 8px;
+                }
+        }
+        ul .ubermenu-has-submenu-stack  .ubermenu-has-submenu-stack {
+            padding-bottom: 0px;
+            > a {
+               // padding-left: 32px;
+            }
+        }
+        &.ubermenu-has-submenu-stack > .ubermenu-target > .ubermenu-target-text
+         {
+            // color: $GannonsTitle;
+        }
+        
+            ul.ubermenu-submenu li.ubermenu-item {
+                a.ubermenu-target  {
+              //  padding: 0 0 0 22px;  // business contracts
+                }
+            ul.ubermenu-submenu li.ubermenu-item {
+                   a.ubermenu-target {
+                      // padding: 0 0 0 27px; // commercial insurance confidentialit agreements
+                      //  @include GannonsLink;
+                   }
+               }
+               ul.ubermenu-submenu li.ubermenu-item.ubermenu-current-menu-item, 
+               &.ubermenu-current-menu-item   {
+                   a.ubermenu-target {
+                        // color: $GannonsTitle; 
+                        // font-weight: 700;
+                   }
+               }
+            }
+            .ubermenu-content-block {
+                font-size: 16px;
+                font-weight: 700; 
+                line-height: 1.5em;
+                color: #666;
+            }
+    }
+}
+ 
+.fa.fa-hand-o-right, .fa.fa-hand-o-left {
+    font-size: 0.8em;
+    width: auto;
+}
+
+
+/*** AUTHOR SIDEBARS ****/
+/* have classes .sidebarInsights .sidebarCases on LI of dynamic items. **/
+
+.ubermenu-submenu.ubermenu-submenu-type-stack {
+    font-family: $sibra-font-family;
+    .sidebarInsights, .sidebarCases {
+        padding: 0 0 0 22px;
+        }
+}
+
+
+/*** TEAM Sidebar **/
+nav.ubermenu.ubermenu-author {
+    ul.ubermenu-nav li.ubermenu-item {
+        ul.ubermenu-submenu li.ubermenu-item {
+            a.ubermenu-target {
+                padding: 0 0 8px 0;
+                
+            }
+        }
+    }
+}
+/* About us page */
+#menu-item-10784 {
+    .aboutUsText {
+       width: 54%;
+       float: left;
+       h2 {
+        font-size: 16px;
+        padding: 10px 10px 0 10px;
+        }
+        p {
+            font-size: 14px;
+            padding: 0 10px 10px 10px;
+        }
+    }
+}
+.teamImage, #menu-item-10784 .aboutus {
+    width: 24%;
+    float:right;
+    margin: 39px 20px 20px 20px;
+        p {
+            font-size: 15px;
+            margin-bottom: 0;
+            width: 100%;
+        }
+    img{
+        width: 100%;
+    }
+    .signature {
+        width: 100%; 
+        display:block;
+    }
+}
+p.caseStudy {  // in custom content at bottom of menu
+   font-size: 15px;
+   margin-bottom: 8px;
+   margin-left: -10px;
+   width: 100%;
+    #menu-item-9693  .ubermenu-content-block.ubermenu-custom-content{}
+}
+/* HOME PAGE: SIBRA HOME TEMPLATE */
+
+gannons-search-sm.gannons-search-home {
+position: absolute;
+bottom: 20px;
+margin: 0 auto;
+text-align: center;
+// z-index: 999;
+z-index: 500; 
+//float: right;
+//left: 0;
+// right: 0;
+}
+
+/*** SEARCCH RESULTS ***/
+.searchResults {
+    margin-top: 30px;
+}
+.ui-tabs {
+    ul {
+      margin-left: 0;  
+    }
+    .ui-tabs-nav li {
+        color: white;
+        background: $GannonsLink;
+        &:before {
+            content:"";
+        }
+        &:hover {
+                color: $GannonsLink;
+                background: white;
+                border: 1px solid $GannonsLink;
+            }
+        a {
+            color: white;
+            &:hover {
+                color: $GannonsLink;
+            }
+        }
+        &.ui-tabs-active {
+            background: $GannonsTitle;
+        }
+    }
+    ul {
+        li {
+           @include GannonsBullet; 
+        }
+    }
+    .ul-tabs-panel {
+        border: 1px solid green;
+        ul li {
+          @include GannonsBullet;
+      } 
+    } 
+}
+.section-title.practice, .section-title {
+    border-bottom: none; 
+    padding-bottom: 0px;
+    text-align: left;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 0;
+    &:before{
+        background-color: transparent;
+        bottom: 0px;
+        height: 0;
+        left: 0;
+        width: 0px;
+    }
+}
+
+/***** ABOUT GANNONS Page *****/
+.pageAboutUs {
+    float: right; 
+    width: 38%;
+    margin: 0 0 15px 15px;
+    .catherine {
+        width: 100%;
+      }
+      .name {
+          width: 100%;
+          font-size: 14px;
+      }
+      p {
+          font-size: 14px;
+      }
+      .signature {
+          width: 38%;
+          float: left;
+          clear: right;
+      }
+}
+/*** SOCIAL SHARING WPSocialite plugin ***/
+
+.container {
+    position:relative;
+}
+    /** Subscribe Plugin **/
+    .wpw-fp-follow-btn-wrapper {
+        margin-bottom: 8px;
+        margin-top: 0px;
+        .wpw-fp-button {
+            @include background-image(radial-gradient(ellipse farthest-corner at center center, #eee, #ddd 64%, #f00 82% ));
+           // border: 1px solid $GannonsLink;
+            color: #000; 
+            font-size: 13px;
+            font-weight: 400;
+            text-align: center;
+             @include border-radius(5px);
+             line-height:1.2em;
+        }
+        .wpw-fp-follow-popup {
+            z-index: 4000;
+            top: 200px;
+            .wpw-fp-popup-body {
+                input {
+                    color: #272D34;
+                }
+            }
+        }
+          .wpw-fp-popup-overlay {
+                z-index: 3900; 
+            }
+    }
+
+
+    
+    
+    
+    
+/** width of content 1170px less 15px padding. minimum content width is  98px **/
+@media  (min-width: 1480px ) and (max-width: 1574px) {
+    .socialSharingOld {
+        width: 150px;
+        .min {
+           display: inline; 
+        }
+        .med {
+           display: none; 
+        }
+        .big {
+           display: none; 
+        }
+    }
+}
+@media (min-width: 1575px ) and (max-width: 1649px) {
+    .socialSharingOld {
+        width: 180px;
+        .rssFeedLink, .emailPage {
+           .min {
+           display: none; 
+        }
+        .med {
+           display: inline; 
+        }
+        .big {
+           display: none; 
+        } 
+        }
+    }
+}
+@media  (min-width: 1650px ) {
+    .socialSharingOld {
+        width: 241px;
+        .rssFeedLink, .emailPage {
+          .min {
+           display: none; 
+        }
+        .med {
+           display: none; 
+        }
+        .big {
+           display: inline; 
+        }
+        }
+    } 
+    }
+
+/* title in middle of picture */
+.vertical {
+    .container {
+        .page-title, h2 {
+            font-size: 28px;
+            letter-spacing: 1px;
+            color: #fff;
+            font-weight: bold;
+            line-height: 34px;
+            padding-bottom:0px;
+            position: relative; 
+            text-align: center;  
+        }
+        p {
+            text-align: center;
+            font-size: 28px;
+            margin-top: 0 !important;
+           
+            padding:0;
+                
+        }
+    }
+}
+
+
+/* HOME PAGE FLEX SLIDER SLOGANS */
+
+.flex-caption h3 {
+    font-family: $sibra-font-family;
+    display: block;
+    color: #fff;
+    list-style-image: none;
+    // font-family: Oxygen, Muli;
+    font-size: 48px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin: 0 0 29px 0;
+    padding:0;
+    text-align: center;
+}
+/* SEARCH BOX STUFF */
+.gannons-search-sm {
+   width: 500px;
+   margin: 0 auto 0 -20px;
+   &.gannons-search-home #searchTextBox .searchText {
+            margin-left: 30px;
+   }
+}
+#searchTextBox {
+    width: 460px;
+    margin: 56px auto 0 auto;
+    color: $GannonsSearch;
+    
+    
+    .searchText {
+    display: block;
+    margin: 0;
+    margin-top: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 24px;
+    text-align: left;
+    color: #fff;
+    }
+}
+#search-form #search-string {
+        background-color: $GannonsSearch;
+    }
+
+input{    
+    font-family: FontAwesome,'GillSansMTStd-Medium' inherit;
+    color: #fff;
+}
+
+/** nice blue green works ok 1B583F  medium blue from Kuler Triad works ok: 1822A0 */ 
+
+
+/** HOME PAGE BLOCKS FULL WIDTH **/
+
+.homePage {
+    h2 {
+         color: $GannonsTitle;
+        font-size: 36px;
+        font-weight: bold;        
+    }
+}
+
+.homeTop   {
+    padding-top: 20px;
+    // padding-bottom: 20px;       
+       @include background-image(linear-gradient(to bottom,  lighten( $backColor, 99%) , lighten( $backColor, 79%)  ));
+}
+.latestStuff {    
+    padding-top: 20px; 
+    padding-bottom: 20px;    
+     @include background-image(linear-gradient(to bottom,  lighten( $backColor, 78%) , lighten( $backColor, 77%)  ));
+    .ubermenu-skin-clean-white {
+        background: none;
+    }
+}
+.news  {    
+    padding-top: 20px;
+    padding-bottom: 20px;
+    img {
+        border: 1px solid $GannonsLink;
+        &:hover {
+            border: 1px solid $GannonsLinkHover;
+        }
+    }
+   //  background-color: #A06818 !important; No Mischo Red not visible. 
+   // background-color: #6D5431 !important; // works ok. 
+  @include background-image(linear-gradient(to bottom,  lighten( $backColor, 76%) , lighten( $backColor, 75%)  ));   
+}
+.practiceAreas {
+    padding-top: 20px;
+    padding-bottom: 0px;
+   @include background-image(linear-gradient(to bottom,  lighten( $backColor, 74%) , lighten( $backColor, 73%)  ));
+    .practices {   // row
+        margin-top: 0px;
+    }
+}
+
+    .practice-item {
+            box-sizing: border-box;
+            margin: 0 0 15px 0;
+            $padTop: 10px;
+            $padSide: 5px;
+            padding: $padTop 0 $padTop 0;
+            border: 3px solid $GannonsLink;
+            height: 150px; 
+            position: relative;            
+            .practice-title {
+                    text-align: center; 
+                }
+                p {
+                    font-size: 15px;
+                    text-align: left; 
+                }
+            .hoverInfo {
+                box-sizing: border-box;
+                display: none;
+                position: absolute;
+                background-color: rgba( $GannonsLinkHover, 1 ) ;
+                border: none;
+                //height: 150px-($padTop*2);
+                height: 126px;
+                overflow: visible;                
+              //  margin: 0 (-$padSide)*6 $padTop 0;
+               margin: 0;
+               z-index: 800;
+               padding: $padTop/5 0 0 $padSide;
+               width: 100%;
+               ul {
+                   margin: 0 0 0 $padSide*2;
+                   li {
+                       @include GannonsBullet;
+                       font-size: 12px;
+                       color: white;
+                       margin-left: 0px;
+                       line-height: 15px;                       
+                       @media screen and (max-width: 1100px) {
+                           font-size: 10px;
+                           line-height: 13px;
+                       }
+                       &:before {
+                           margin-left: -5px;
+                           width: 10px;
+                       }
+                   }
+               }              
+                p {
+                    color: white;
+                    text-align: left;
+                    font-size: 12px;
+                    margin-bottom: 0;
+                    padding: 0 $padSide;
+                    width: 100%;
+                }
+            }
+            &:hover {
+                background: $GannonsLinkHover;
+                border-color: $GannonsLinkHover;                 
+                .practice-icon, .practice-icon i,  .practice-title {
+                    display:none;
+                }
+                &.quickfact {
+                    display: block;
+                }
+                .hoverInfo {
+                    display:block;
+                }
+            }
+            a {
+                @include GannonsLink;
+                .practice-icon {
+                    margin: 10px 0;
+                    line-height: 1em;
+                    i {
+                        font-size: 50px;
+                        height: 1em;
+                        color: $GannonsLink;
+                    }
+                    .icon-contracts {
+                      @include GannonsLink;
+                    }
+                }
+                .practice-title {
+                    margin-top: 0;
+                    font-size: 18px;
+                    color: $GannonsLink;
+                     @media screen and (max-width: 1100px) {
+                           font-size: 15px;
+                       }
+                    &.tax {
+                        margin-left: -10px;
+                    }
+                }
+            }
+            &.quickFact {
+                height: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-left: 0;
+                    h5.practice-title {
+                        margin-top:  0;
+                    }
+                    p {
+                        margin-bottom: $baseFontSize/2;
+                    }
+                    .recruiting {
+                        p {
+                            margin-bottom: 0;
+                        }
+                    }
+            &:hover {
+                color: white;
+                h5 {
+                    display: block;
+                    color: white;
+                }
+                p, a {
+                    color: white;
+                }
+                p a {
+                    text-decoration: underline;
+                }
+            }
+            p {
+                
+            }
+        }
+        }
+  
+
+
+.yourTeam {   
+    padding-top:  20px;
+    padding-bottom: 20px;
+     @include background-image(linear-gradient(to bottom,  lighten( $backColor, 72%) , lighten( $backColor, 71%)  ));
+}
+
+.intro-msg {
+    text-align:left;
+    font-size: 20px;
+    margin-bottom: 20px;
+     color: $textColor !important;
+    
+    ul {
+        margin-top:0;
+        margin-left: 0px;
+        margin-bottom: 0px;
+        li {
+           @include GannonsBullet; 
+        }
+    }
+    .intro-normal {
+       text-align:left;
+        font-size: 24px;
+        margin-bottom: 20px; 
+    }
+}
+
+.awards {
+        width: 100%;
+        padding-left: 0px;
+        padding-bottom: 0px;
+        float: right;
+        .first {
+          //  margin-bottom: 10px;
+            margin-top: 0px;
+        }
+        img {
+            width: 100%;
+        }
+    }
+
+
+
+// Services Page 
+
+        
+@mixin homePageBoxType {
+    padding: 0;
+    line-height: 18px;
+   // margin: 0 0 18px 0;
+    min-height: 36px;    
+    font-weight: 400;
+    font-size: 16px;
+    border-image-width: 0 0 0 0;
+    text-align:left;
+    border: none;
+}
+.homePageBoxes, .recruiting {
+    h2 {
+        color: $GannonsTitle;
+        font-weight: 700;
+        font-size: 30px;
+    } 
+    // recruiting stuff which is a menu segment
+    nav.ubermenu   ul.ubermenu-nav  li.ubermenu-item {
+        width: 100%;
+        margin-top: 0;
+        border-image-width: 0 0 0 0;
+        
+        a.ubermenu-target {             
+            @include GannonsLink;
+            @include homePageBoxType;
+            display: inline-block;
+            width: 100%;
+            &:hover {
+                color: white;
+            }
+        }
+    }
+    
+    nav.ubermenu li.ubermenu-item {
+        // latest insights and case studies
+       ul.ubermenu-submenu li.ubermenu-item {
+        margin-top: 0;
+        border-image-width: 0 0 0 0;
+        a.ubermenu-target {
+            @include GannonsLink;
+            @include homePageBoxType;
+        }
+    }
+       // Events box
+        .ubermenu-content-block.ubermenu-custom-content {
+         @include homePageBoxType;
+         color: $textColor;
+         min-height: 1px;
+         margin-bottom: 0; 
+         p {
+             margin-bottom: 8px; 
+         }
+        .homePageEvents {
+            color: $textColor;
+            @include homePageBoxType;
+            font-weight: 400;
+            margin-bottom: 8px; 
+            a {
+                @include homePageBoxType;
+                @include GannonsLink;                
+                font-weight: 700;
+            }
+        }        
+    }
+}
+}
+.yourTeam {
+    .col-md-ten {
+        width: 10%;
+        padding-left: 15px;
+        padding-right: 15px;
+        float: left;
+        img {
+            width: 100%;
+            margin-bottom: 8px;
+        }
+        p {
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 0;
+            line-height: 1em;
+        }
+    }
+    .col-md-five {
+        width: 20%;
+        padding-left: 15px;
+        padding-right: 15px;
+        float: left;
+        
+    }
+    font-size: 16px;    
+    a h2 {
+       @include GannonsLink; 
+       font-size: 16px; 
+    } 
+    h2 {
+        color: $GannonsTitle;
+        font-size: 16px;
+        font-weight: 700;
+        margin-top: 7px;
+    }
+    .authorPosts {
+       margin-top: 0;
+       margin-left: 0px;
+       font-size: 16px;
+       list-style-image: none;
+       list-style-type: none;
+       line-height: 18px;
+       li {
+           margin-bottom: 18px;
+           min-height: 54px;
+       }
+        
+    }
+    
+    
+}
+
+
+#practice-areas.home-widget.margin-t {
+    margin-top: 20px;
+}
+
+
+
+.whotocontact.row{
+   margin-left: 0;
+   margin-right:0;
+}
+
+
+/* Blog but also .middle which is for all pages and case studies. */
+
+ .blog-articles h4.blog-title, .blog-articles h2.blog-title  {
+    margin-top: 10px;
+}
+
+.blog-articles, .middle {
+    padding-bottom: 20px;    
+    .quote {
+        padding-left: 30px;
+        padding-right: 30px;
+        font-style: italic;
+        margin-bottom: 0;            
+    }
+    .indent {
+        padding-left: 30px;
+        font-weight: 700; 
+    }    
+    .blog-title {
+        font-size: $h2Size;
+        
+    }
+
+    .blog-button {
+        float: right;
+        margin-top: 0;
+        font-size: 16px;
+        line-height: 22px;
+        height: 48px;
+        a {
+            padding: 10px;
+            @include GannonsLink; 
+            border-color: $GannonsLink;
+            
+            &:hover {
+                background-color: $GannonsLinkHover;
+                color: white;
+                border-color: $GannonsLinkHover;
+            }           
+        }
+    }
+    .really_simple_share {
+        width: 60%;
+        clear: none;
+        position: static;
+        float:left;
+    }
+    .really_simple_share_clearfix {
+        clear: none;
+        width: 0;
+        float: left;
+        font-size: 0;
+        line-height: 0;
+    }
+    
+    .authPic, .authPicFull {
+        float: right;
+        max-width: 38%;
+        width: 181px;
+        margin-left: 20px;
+        img {
+        width: 100%; 
+        } 
+        
+    }
+    
+}
+.margin72 {
+    margin-top: 20px;
+}
+.blog .container .row {
+    border-bottom: 1px solid #c5c5c5;
+    .prev-next {
+    font-size: 16px;
+    margin-top: 10px;
+}   
+    .blog-post {
+        border-bottom: 0px;
+        padding-bottom: 40px;
+        &:before {
+            background-color: transparent;
+        }
+    }
+     &:before {
+        content: "";
+        bottom:-3px;
+        background-color:  $GannonsTitle;
+        height:5px;
+        left: 50%;
+        margin-left: -50px;
+        margin-right: 0px;
+        position: absolute;
+        width: 100px;
+         
+    }
+}
+
+.foo-copyright.alignc {
+    display: inline-block;
+    @include GannonsLink; 
+    
+    h5, p, a {
+        color: #fff; 
+    }
+}
+
+.leftColumn {    
+ .leftSidebar {
+     .orangeText {
+         width: 100%;
+         background-color: $GannonsRed;
+         padding: 10px 10px 0px 15px;
+         position: relative;
+         right: 0px;
+         margin-bottom: $baseLineHeight;
+         p {
+             color: white;            
+         }
+         .emailAuthor {
+                   font-size: 16px; 
+                   @include GannonsLink;
+                   
+                   white-space: nowrap;
+         }
+     }
+    }
+}
+.teamImgMenu  a {
+    border: 1px solid blue !important;
+    img {
+    margin: 0px 10px 10px 0 !important;
+    border: 1px solid red;
+    }
+    span {
+        padding-top: 30px; 
+         border: 1px solid red;
+    }
+}
+
+
+/* Single blog post on Single.php */
+
+.leftSidebar, .rightSidebar { 
+    // http://stackoverflow.com/questions/21522527/bootstrap-3-fixed-top-navbar-flickering-on-mobile-scrolling-using-jquery-one-p
+    // stops sidebar bouncing around. 
+    -webkit-backface-visibility: hidden;
+    
+   &.affix-top {
+       position:relative;
+       // top: 390px; 
+       width: 100%;
+   }
+   
+   &.affix {
+       top: 55px;
+       width: 25%;
+   }
+   
+}
+
+.logged-in {
+    .leftSidebar, .rightSidebar {   
+   
+   &.affix {
+       top: 87px;
+      
+   }
+   
+}
+}
+
+.rightSidebar {
+   @include greyBox;
+   
+   &.affix {
+        width: 263px;
+   }
+   .socialSharing  {
+   min-height: 90px; 
+   width: 100%;
+  // @include greyBox; 
+    padding: 8px 0 4px 4px;
+    overflow: hidden;
+    margin-bottom: 30px;
+
+                
+   -webkit-backface-visibility: hidden; 
+ -webkit-transform: translate3d(0px, 0px, 0px);
+-webkit-transform: translateZ(0);
+    z-index: 1000;
+    .wpsocialite.small {        
+        padding: 0 0 0 15px;
+                margin: 0; 
+                .socialite {
+                    width: 65px;
+                }
+        > li {
+            display: block;
+            width: auto; 
+            //.linkedin-share .IN-widget
+            
+            .facebook-like .fb_iframe_widget,
+            .twitter-share .twitter-share-button, 
+            .googleplus-one .g-plusone                       
+             {
+                float:left;
+                margin-top: 10px;
+                margin-bottom: -5px;
+                width: 65px;
+                height: 20px !important;
+            }
+            .googleplus-one {
+                margin-top: 5px;
+            }
+            
+            .googleplus-one #___plusone_0[style] {
+                float:left!important;               
+               
+            }
+            .twitter-share {
+                margin-top: -5px;
+                margin-bottom: -5px;
+                float: left; 
+            }
+            .socialite.linkedin-share.socialite-instance.socialite-loaded {
+                height:20px !important;
+                margin-top: 5px;
+                width: 110px !important;
+                float: left;
+                margin-bottom: -5px; 
+                .IN-widget[style] {
+                    text-align: left !important;
+                }
+            }
+            
+            .socialite.twitter-follow.socialite-instance {
+                width: 200px;
+                margin-top: 3px;
+            }
+        }
+    }
+    .rssFeedLink, .emailPage {
+        font-size: 13px;
+        @include GannonsLink;
+        color: $GannonsLinkGreyBack;
+        padding: 0 0 0 15px;
+        .fa-envelope {
+            padding-top: 0px;
+        }
+        
+        p {
+            font-size: 11px;
+            margin-bottom: 0px;
+            font-weight: 700;
+            color: $GannonsLinkGreyBack;
+            display: inline-block;
+        }
+                
+        width: 100%;
+        display: inline-block;
+        .min {
+           display: inline; 
+        }
+        .med {
+           display: none; 
+        }
+        .big {
+           display: none; 
+        }  
+        img{
+            padding-right: 5px;
+            margin-top:-5px;
+        }
+        i {
+            padding-right: 7px;
+            padding-top: 5px;
+            font-size: 1.6em;
+        }
+    }
+}
+
+/*** Events Page ****/
+.videosOld, .slideShow {
+    margin-bottom: 30px; 
+    .galleria-image img{
+        width: 100%; 
+        height: auto;
+    }
+    
+    
+}
+
+ .comments-seminar {
+    // border: 1px solid red !important;
+    
+    ul {
+         font-size: 16px;
+        // margin-left: 20px;
+        li {
+           @include GannonsBullet;
+           margin-bottom: 8px ;
+           color: #fff;
+        }
+        
+       
+        
+    }
+}
+/** Events listed in sidebar when in RightSidebar **/
+.widget_em_widget {
+    margin-top: $baseFontSize/2;
+    margin-bottom: 0;
+    padding-left: 10px;
+    h3 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.3em;
+        color: $GannonsTitle;
+        &::before {
+            content: '\f0f4';
+            font-family: FontAwesome;
+              float: left;
+              margin-left: 0;
+              padding-right: 5px;
+              
+            font-size:16px;
+            color: $GannonsTitle;
+            
+        }
+    }
+    
+    ul {
+        font-size: 16px;
+        line-height: 1.3em;
+        list-style-image: none;
+        list-style-type: none;
+        margin-left: 0;
+        padding-left: 22px;
+        li a {
+            @include GannonsLink;
+            @include GannonsLink;
+            color: $GannonsLinkGreyBack;
+            white-space: nowrap;
+        }
+        li  {
+           color: white; 
+        }
+        li::before {
+           // font-family: FontAwesome;
+          //  content: "\f0f4";
+           // padding-right: 5px;
+        }
+        li ul {
+           // list-style-image: url('../img/BulletPoint_20.png');
+            
+            padding-left: 0px;
+            margin-bottom: 0px;
+            
+            li {
+                color: $textColorRightSidebar;
+                font-weight: 400;   
+            }
+            li::before{
+                content:"";
+                padding: 0;                
+            }
+        }
+    }
+}
+}
+
+  
+    .authPic {
+       width: 100%;
+       &.team {
+           .contactPerson:hover .hoverText {
+           }
+       }
+    }
+       .contactPerson {
+           margin-bottom: 30px;
+           width: 100%;
+         //  @include greyBox;
+           h2 {
+               margin: 10px 10px 10px 15px;
+           }
+           &:hover .hoverText {
+               visibility: visible;
+            }
+            
+            
+          img {
+            width: 100%;
+           // @include greyBox;
+            @include border-radius(0px);
+            }
+            .hoverText {
+               padding: 10px 10px 10px 15px;
+                background-color: rgba( $GannonsLinkHover, 1 ) ;
+                color: white;
+                float: left;
+                position: absolute;
+                bottom: 124px;
+                visibility: hidden;
+               /***  from hoverInfo ***/
+                box-sizing: border-box; 
+                border: none;
+               margin: 0;
+               z-index: 800;               
+               width: 100%;
+               height: 206px;
+                p {
+                    font-size: 16px;
+                    line-height: 1.3em; 
+                    text-align: left;
+                    color: white ;
+                }
+                &.aboutGannons {
+                    bottom: 250px;
+                }
+                
+            } 
+            .contactDetails {
+                margin: 10px 10px 10px 15px;
+                h2 {
+                    margin: 0;
+                    a {
+                        @include GannonsLink;
+                        color: $GannonsLinkGreyBack;
+                    }
+                }
+                p {
+                    color: white;
+                    font-size: 16px;
+                    margin-bottom: 0;
+                    text-align: left;
+                    .phone {
+                        white-space: nowrap;
+                    }
+                }
+                img.signature {
+                    background-color: transparent !important;
+                    border: none;
+                    width: 62%; 
+                }
+                .sig {
+                    margin-bottom:0;
+                }
+           
+               .emailAuthor {
+                   font-size: 16px; 
+                   @include GannonsLink;
+                   color: $GannonsLinkGreyBack;
+                   white-space: nowrap;  
+               }
+               .teamAuthor {
+                   font-size: 16px; 
+                   @include GannonsLink;
+                   color: $GannonsLinkGreyBack;
+               }
+               .phone {
+                   font-size: 16px; 
+                   @include GannonsLink;
+                   color: $GannonsLinkGreyBack;                   
+               }
+                          
+            }
+            
+       }
+        
+        .well {
+            padding: 0px;
+            background: none;
+            box-shadow: none; 
+            border: none;
+            margin-bottom: 0;
+        }
+        .subscribe { 
+            width: 100%; 
+            h3 {
+                font-size: 22px;
+                font-weight: 700;
+                margin-bottom: 0px;
+                color: $GannonsTitle;                
+            }
+            margin-bottom: 30px;
+            padding: 10px 5px 10px 15px;
+            
+            width: 100%;
+            color: white;
+            @include greyBox;        
+            .stc-subscribe-wrapper {
+                font-size: 16px;
+                
+                width: 100%;
+                .stc-categories {
+                    margin-bottom: 16px;
+                    .checkbox {
+                    margin: 0 0 0px 0;
+                    min-height: 1.3em;
+                }
+                }                
+                input[type="checkbox"] {
+                   
+                }
+                button#stc-subscribe-btn {
+                   @include button-variant( #fff, gray, #BCC6CC);
+            }
+            }        
+    }
+        
+    /**** Related content ****/
+
+    .relatedContent {
+        margin-bottom: 30px;
+        
+        .relatedClear {
+            line-height: 0px;
+        }
+        
+        .related-wrapper {
+            padding-left: 15px;
+            .dropDown {
+                    display: none;
+                    
+                    
+            }
+            .moreStuff {
+                .fa-angle-down {
+                        float: none;
+                        font-weight: bold;
+                        line-height: 16px;
+                        display: inline-block;
+                       vertical-align: text-bottom;
+                    }
+            }
+            .moreStuff:hover {
+                .dropDown {
+                    display: block;
+                }
+            }
+            .row {
+                width: 100%;
+                padding: 0;
+                margin:0;
+                
+                
+            
+        .related-content {
+            height: auto;
+            
+            font-size: 16px;
+            line-height: 1.3em;
+            padding:0;
+            
+            
+            a {
+                color: $GannonsLinkGreyBack;
+                font-weight: 400;
+                &:hover {
+                    color: $GannonsLinkHover;
+                    }
+                }
+            .related-text {
+              //max-height: 1000px; 
+              height: auto;
+            }
+
+            .fa {
+                min-height: 0;
+                height: auto;
+                margin-top: 0;
+                padding-top:0;
+            }
+        }
+            }
+    } 
+    }
+
+    .related-cases {
+        margin-top: $baseFontSize/2;
+        .row {
+            font-size: $baseFontSize;
+            line-height: $baseLineHeight; 
+            padding-left: 1.3em;
+        }
+    a {
+            font-size: $baseFontSize;
+           @include GannonsLink;
+           
+           line-height: $baseLineHeight; 
+        }
+        }
+    
+/** this is where related content appears at the bottom **/
+.content-holder { 
+.related-wrapper {
+   .row   {
+        width: 25%;
+        float: left;
+        padding-right: 15px;
+        margin-right: 0;
+    }
+    }    
+    .related-content { 
+        .related-text {
+          font-size: 14px;
+        }
+        .fa {           
+        }
+    }
+} 
+.sibraFullWidthTemplate {
+    width: 25%;
+    float: right;
+    margin: 0 0 30px 15px;
+}
+.pagination {
+    .page-numbers {
+        border: 1px solid $GannonsLink;
+        color: $GannonsLink;
+        &:hover {
+            color: white;
+            background: $GannonsLinkHover;
+            border-color:  $GannonsLinkHover;
+        }
+    }
+}
+.noLeftPadding {
+    padding-left: 0;
+}
+.grey-bg {
+   background-color: transparent; 
+}
+
+/*** RELATED CONTENT ***/
+.whotocontact.grey-bg,
+.whotocontact.red-bg {
+  //  @include greyBox;
+  
+    color: $GannonsTitle;
+    .col-md-6 {
+        color: $GannonsTitle;
+        h3 a, p a, p i {
+       // @include GannonsLink;
+    }
+    a {
+        color: $GannonsLinkGreyBack;
+        font-weight: 400;
+        &:hover {
+            color: $GannonsLinkHover;
+        }
+    }
+    }
+    
+}
+
+
+
+.related-wrapper.grey-bg,
+.related-wrapper.red-bg  {
+   // @include greyBox;    
+    .row > .related-content, .col-md-6  {
+    .fa {
+        font-size: 20px;
+        color: $GannonsBullet;
+       // padding-top: 5px;
+    }
+    
+     
+       a, a span {
+        color: $GannonsLinkGreyBack;
+        font-weight: 400;
+        margin-bottom:0.5em;
+        &:hover {
+            color: $GannonsLinkHover;
+        }
+    }
+       
+  
+}
+
+}
+
+#footer-var2 {
+    padding-top: 30px;
+}
+
+.foo-block {  
+    ul {
+    margin-left: 20px;
+    margin-top: 0;
+        li {
+        @include GannonsBullet;
+            &:before {
+            width: auto;
+            }
+        }
+    }
+    a {
+        color: $GannonsLinkGreyBack;
+        font-weight: 400;
+        &:hover {
+            color: $GannonsLinkHover;
+        }
+    }
+}
+ 
+.widgettitle {
+    margin-bottom: 0;
+}
+
+
+
+
+
+/* validator errors */
+
+.calltoaction .vertical, .callus .vertical, .quickfact .vertical, .testimonial .vertical, event .vertical {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    color: #fff;
+}
+
+/****** Table *****/
+table.insights {
+    margin-bottom: 15px;
+    font-size: 16px;
+    th {
+        text-align:center;
+        vertical-align: top;
+        font-weight: bold;        
+    }
+    tr th:first-child {
+        padding-left: 0;
+    }
+    tr th:last-chid {
+        padding-right: 0;
+    }
+    &.left th {
+        text-align: left;
+        padding-left: 15px;
+    }
+    
+    td {
+        vertical-align: top;
+        padding: 5px 15px 5px 15px;
+        
+    }
+    tr td:first-child {
+            font-weight: bold;
+            padding-left: 0;
+        }
+        tr td:last-child {
+            padding-right: 0;
+        }
+        
+        &.investors {
+            td {
+                text-align: left;
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+        }
+        
+}
+
+/***Employment Case studies http://www.gannons.co.uk/about-gannons/case-studies/employment/ ***/
+
+.employmentLeft{
+    width: 47%;
+    float:left;
+    p {
+        text-align: left;
+    }
+    
+}
+.employmentRight {
+    width: 47%;
+    float:right;
+    p {
+        text-align: left;
+    }
+}
+.employmentImage{
+    float: right;
+    width: 38%;
+    padding-left: 10px;
+}
+
+/* Article images in team profiles  and In the news */
+.col-md-2:nth-of-type(6n + 7) {
+    clear: both;
+}
+
+
+.clearFloat {
+    clear: both;
+}
+    .article{
+        width: 100%;
+        margin-bottom: 35px;
+        font-size: 13px;
+                width: 100%; 
+                text-align: left;
+                margin-top: 7px;
+                line-height: 1.3em; 
+        a {
+           font-size: 13px;
+                width: 100%; 
+                text-align: left;
+                margin-top: 7px;
+                line-height: 1.3em; 
+        }
+        img {
+            width: 100%; 
+            margin-bottom: 7px; 
+            }
+            .articleText {
+                font-size: 13px;
+                width: 100%; 
+                text-align: left;
+                margin-top: 7px;
+                
+            }        
+    } 
+    
+.ubermenu-content-block.ubermenu-custom-content.ubermenu-custom-content-padded {
+        .article {
+            width: 80%;
+            margin: 0px auto 10px auto;
+            font-size:12px;
+            line-height: 1.3em;
+            a {
+                padding: 0; 
+            }
+            
+            .articleText {
+                font-size:12px;
+                line-height: 1.3em;
+            }
+            a {
+                padding: 0;
+            }
+        }
+    }
+.ubermenu-tab-content-panel .ubermenu-divider {
+          padding: 0;      
+            }    
+    
+  
+            
+/** Events Manager **/
+
+.lastRow td {
+   padding-top: 30px;    
+}
+
+/** Events listed in sidebar **/
+.widget_em_widget {
+    margin-top: $baseFontSize/2;
+    margin-bottom: 0;
+    h3 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.3em;
+        color: $GannonsTitle;
+        &::before {
+            content: '\f0f4';
+            font-family: FontAwesome;
+              float: left;
+              margin-left: 0;
+              padding-right: 5px;
+              
+            font-size:16px;
+            color: $GannonsTitle;
+            
+        }
+    }
+    
+    ul {
+        font-size: 16px;
+        line-height: 1.3em;
+        list-style-image: none;
+        list-style-type: none;
+        margin-left: 0;
+        padding-left: 22px;
+        li a {
+            @include GannonsLink;
+        }
+        li  {
+           color: $GannonsLink; 
+        }
+        li::before {
+           // font-family: FontAwesome;
+          //  content: "\f0f4";
+           // padding-right: 5px;
+        }
+        li ul {
+           // list-style-image: url('../img/BulletPoint_20.png');
+            
+            padding-left: 22px;
+            margin-bottom: 10px;
+            li {
+                color: $textColorSidebar;
+                font-weight: 400;   
+            }
+            li::before{
+                content:"";
+                padding: 0;                
+            }
+        }
+    }
+}
+
+
+
+
+/** Main Events Page **/
+.leftInfo {
+    font-size: 16px;
+    line-height: 1.3em;
+}
+.contentInfo .map {
+    width: 400px;
+    float: right;
+    margin-left: 10px;
+}
+
+.allEventsDetails {
+    margin-bottom: 45px;
+}
+/*** Catherine doesn't like red for the button, #3B3B3B looks awful, **/
+
+.bookButton, .em-booking-form-details .em-booking-buttons input  {
+    @include button-variant( #fff, gray, #BCC6CC);
+   
+}
+.freeEvents {
+    float:right;
+    width: 300px;
+    text-align:center;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+
+.locationDetails {
+    .locationAddress {
+        ul {
+            margin-top: 0;
+            margin-left: 0;
+            list-style-type: none;
+            list-style-image: none;        
+            }
+        }            
+    .locationMapTitle h3 {
+        text-align: center;
+    }
+    .locationMap {
+        margin-bottom: 15px;
+        .em-location-map-container {
+            margin-left: auto;
+            margin-right: 0;
+            
+        }
+        
+    }
+    
+}
+.em-location-map, .em-locations-map {
+    width: 400px !important; 
+    height: 300px !important; }
+
+
+.em-booking-form-details, .em-booking-form {
+    padding: 0;
+    min-width: 400px;
+    width: 100%;
+    input.input, textarea.input {
+        font-family: Oxygen, inherit; 
+        color: inherit; 
+        border-top: 1px solid $GannonsTitle; 
+        border-left: 1px solid $GannonsTitle; 
+        text-align: left;
+        line-height: 1.4em;
+        font-size: 20px;
+        padding: 5px;
+        min-width: 266px;
+        width: 63%;
+        margin-left: 10px;
+        //float: right;
+    }
+    .input-group {
+        display: block;
+    }
+    label {
+        min-width: 133px;
+        width: 30%;
+       // border: 2px solid white;        
+        color: $textColor;
+        padding: 4px 0;
+        margin-top: 0px;
+        font-weight: 400;
+    }
+    textarea {
+        min-height: 130px;
+        padding-top: 10px;
+        
+    }
+    span.form-tip {
+        border-bottom: 0px solid transparent;
+    }
+}
+
+
+ 
+ 
+ 
+
+/*** CONTACT FORM **/
+$captchaHeight: 48px;
+
+#output-contact {
+    margin-bottom: 100px;
+}
+#contact-form-holder {
+    .box {
+        margin-bottom: 10px;
+        &.gap {
+            margin-bottom: 20px;
+        }
+        &.security {
+            height: $captchaHeight;
+        }        
+    }
+    label {
+        min-width: 90px;
+        width: 18%;
+        border: 2px solid white;        
+        color: $textColor;
+        padding: 4px 0;
+        margin-top: 0px;
+        font-weight: 400;
+    }
+    .wpcf7-form-control {
+        width: 78%;
+        float: right;
+        margin-top: 0;
+        padding: 4px 16px;
+        background: white !important;
+        border-top: 2px solid $GannonsTitle;
+        border-left: 2px solid $GannonsTitle;
+        color: $textColor !important; 
+    }
+    img.wpcf7-form-control {
+            width: 144px;
+            height: $captchaHeight;
+            border: none;
+        }
+    
+    .captchas {
+        margin-top: 10px;
+    }
+    
+    .contact-btn {
+    @include button-variant( #fff, gray, #BCC6CC);
+    top: 10px;
+    width: 270px;
+    margin: 0 0 0 auto;
+    line-height: 1em;
+   
+    
+    #submit-contact.wpcf7-form-control {
+        padding:0;
+        border: none;
+        background: transparent !important;
+        color: white !important;
+     line-height:1.3em;
+       width: 230px;
+       // text-align: center;
+        float: left;
+      //  margin: 0 auto;
+      //  top: 0;
+       // vertical-align: middle;
+        
+    }
+    .ajax-loader {
+        float: none;
+        top: 0;
+    }
+}
+}
+.locationBox {
+    margin-bottom: 10px;
+}
+.locations {    
+    border: 5px solid $GannonsLink;
+    padding: 30px;
+    p {
+        color: $GannonsLink;
+        text-align:center;
+        &:hover {
+           color: white; 
+        } 
+    }
+    &:hover {
+        color: $GannonsLink;
+        background: $GannonsTitle;
+        p {
+            color: white;
+        }
+    }
+}
+@media only screen and (max-width: 767px) {
+    .locations{
+       padding: 10px; 
+    }
+    
+}
+
+.gmaps-red-box {
+    padding: 10px;
+    display: none;
+    a {
+        @include GannonsLink;
+        color: $GannonsLinkGreyBack;
+    }
+    &.red-bg {
+     //  @include greyBox;
+       width: 14%;
+    }
+    p {
+      text-align: left; 
+      font-size: 0.85em;
+      margin-bottom: 0;
+    }    
+}
+
+/* Prasan's bike ride */
+
+.prasanBike {
+    h3.prasan{
+    color: $GannonsTitle;
+    font-size: 28px;
+    font-weight: 700;        
+}
+p {
+    text-align: left;
+}
+img {
+    width: 100%;
+}
+    
+}
+.halfRight, .halfLeft {
+    width: 50%;
+    font-size: 16px;
+    line-height: 1.1em;
+    margin-bottom: 30px;
+    .prasanPic, img {
+      width: 100%;      
+    }
+    p {
+        text-align: left; 
+        font-size: 16px;
+    }
+}
+.halfLeft {
+    float: left;
+    padding-right: 8px; 
+}
+.halfRight {
+    float: right;
+    padding-left: 8px;
+}
+
+
+
+
+/***** RESPONSIVE STUFF APPLIES TO ALL TEMPLATES ****/
+// Modern laptops 
+
+// This is lg, but LG starts at 1200. 
+@media only screen and (min-width: 1370px) {
+    /**** Previous Seminars *****/
+.previousSeminars.col-lg-4:nth-child(3n+4) {
+    clear: left;
+}
+ 
+    
+     /** Width of container **/
+    .container {
+        width: 1340px;
+    }
+    .teamPages .col-md-3:nth-of-type(4n + 5) {
+    clear: both;
+}
+}
+
+// LG and up
+@media only screen and (min-width: 1200px) and (max-width: 1369px) {
+    
+    /**** Previous Seminars *****/
+.previousSeminars.col-lg-4:nth-child(3n+4) {
+    clear: left;
+}
+ 
+    
+    .teamPages .col-md-3:nth-of-type(4n + 5) {
+    clear: both;
+    }
+}
+
+
+
+// MD   full flyout menu breakpoint. 
+@media only screen and (min-width: 992px) and (max-width: 1199px ) {
+    
+    .previousSeminars.col-md-6:nth-child(2n+3) {
+    clear: left;
+}
+    
+    .teamPages .col-md-3:nth-of-type(4n + 5) {
+    clear: both;
+}
+.authPic  .contactPerson {
+    .hoverText {
+        padding-right: 1px;
+        padding-top: 3px;
+        p {
+            font-size: 11px;
+            line-height: 1.1em;
+        }
+    }
+}
+}
+// UBermenu styling on responsive. 
+@media only screen and (max-width: 959px) {
+    #collapse-navigation {
+        .ubermenu-skin-black-white-2.ubermenu-responsive-toggle {
+            background: $GannonsRed;
+            padding-left: 0;
+             @include border-radius(15px);
+             i {
+                 padding-left: 24px;
+                 padding-right: 10px;
+             }
+            .ubermenu-sub-indicators .ubermenu-has-submenu-drop > .ubermenu-target::after {
+                padding-left: 20px;
+            }
+        }
+        
+    }
+}
+
+
+// XS & SM tablet menu styling range
+@media only screen  and (max-width: 991px) {
+    .page-head {
+        width: 100%;
+        overflow: hidden;
+        height: auto;
+        
+        .vertical {
+            width: 100%;
+            overflow: hidden;
+            .container {
+                overflow: hidden;
+                width: 90%;
+                min-width: 240px;
+                float: left;
+                .page-title, p {
+                    font-size: 18px !important;
+                    float:left;
+                    text-align: left;
+                    line-height: 1.2em;
+                    margin-top: $baseFontSize;
+                }
+                p {
+                    font-size: 15px !important;
+                }
+            }
+        }
+    }
+    /********* HOME PAGE TOP PAGE STYLING ***********/
+    #slider-home {
+        .flexslider-home {
+            .slides {}
+            .gannons-search-sm.gannons-search-home {
+                #searchTextBox {
+                    width: $searchTextBoxWidth480;
+                    .searchText {
+                        font-size: 16px;
+                        margin-left: 12px;
+                    }
+                }
+                #search-form {
+                    #search-string {
+                        font-size: 16px;
+                        border-radius: 10px;
+                        height: 30px;
+                        padding: 6px 12px;
+                        width: $searchTextBoxWidth480;
+                    } 
+                }
+            }
+        }
+    }
+    
+    
+    /*********** ALL PAGES BAR TOP PAGE TOP STYLING **************/
+    .vertical .container {
+        #searchTextBox {
+            width: 85%;
+        }
+        
+        .page-title {
+            display:inline-block;
+            text-align: left;
+        }
+        p {
+            display: inline-block;
+            width: 100%;
+        }
+    }
+    div.page-head div.vertical div.container {
+        .gannons-search-sm {
+            float: left;
+            #searchTextBox {
+                text-align: left; 
+                 float:left;
+                 margin-top: 0;
+                 // width: auto;
+                 p {
+                     margin-left: 15px; 
+                 }
+            }
+            #search-form {
+                text-align: left;
+                margin-left: 15px;                 
+                input {
+                    width: auto;
+                }
+            }
+        }
+    }
+    #searchTextBox .searchText {
+        font-size: 18px;
+    }
+}
+
+// Start of Tablets SM devices: 
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    /**** Previous Seminars *****/
+    .previousSeminars.col-sm-6:nth-child(2n+3) {
+        clear: left;
+    }
+    .newsArticles, .teamPages {
+        .col-sm-4:nth-of-type(3n+4) {
+         clear: both;
+        }
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 991px) {
+     .subscribe, widget_em_widget, 
+     .contactPerson, .relatedContent, .rightSidebar .socialSharing {
+        width: 350px;         
+    }
+}
+// all the way to 767px  i.e the whole XS extra small devicies. 
+@media only screen and (max-width: 767px) { 
+    #logo  {
+        max-width: 40%;
+    }
+    .header-phone a, .header-phone .fa-stack {
+        font-size: $baseFontSize * 1.1;
+    }
+    .previousSeminars.col-xs-12:nth-child(n+1) {
+    clear: left;
+    }
+    
+    #main {
+        max-width: 100%;
+         overflow: hidden;
+          .page-head {
+                max-width: 100%;
+                width: 100%;
+                 overflow: hidden;
+                 height: auto;
+                 min-height: 100px !important;
+            }  
+    }
+    .newsArticles, .teamPages {
+        .col-xs-6:nth-of-type(2n+3) {
+         clear: both;
+    }
+    }
+}
+// Gap in bootstrap 
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    #logo {
+         margin: 12px 0px;
+     }
+     .gannons-search-sm {
+         width: 400px;
+     }
+}
+ // menu styling for phones  
+ @media only screen and (max-width: 479px) {
+     #logo {
+         margin: 8px 0px;
+     }
+     .header-phone a, .header-phone .fa-stack {
+        font-size: $baseFontSize;
+        margin-right: 0;
+    }  
+     div.page-head div.vertical div.container {
+         h3.page-title, h4.page-title, p {
+         margin-left: 0;
+         margin-right: 0;
+         float: left;
+        // max-width: 250px;
+        width: 100%;
+         text-align: left;
+         //position: relative;
+        // right: 100px;
+        line-height: 1.1em; 
+        }
+     }
+ }
+/***** END RESPONSIVE STUFF APPLIES TO ALL TEMPLATES ****/
+/**** RESPONSIVE STUFF HOME PAGE ***/
+@media only screen and (min-width: 1370px){
+}
+// full flyout menu breakpoint. 
+@media only screen and (min-width: 970px) and (max-width: 1369px ){
+}
+// kinda tablet menu styling range
+@media only screen  and (max-width: 991px) {    
+    body, .intro-msg {
+        font-size: 15px;
+        line-height: 1.4em;
+    }
+    .flex-caption h3 {
+        font-size: 20px
+    }
+    // home page slider
+    .flexslider-home {
+        .slides {
+            width: 100% !important;
+            img {
+                height: 150px !important;
+                width: 100% !important;
+            }
+        } 
+        .flex-caption {
+            margin-top: 8px !important;
+            h3 {
+                font-size: 20px;
+                margin-bottom: 8px;
+                line-height: 1em;
+            }
+        }
+        .flex-direction-nav {
+            display: none;
+            a {
+                height: 0;
+            }
+        }
+    }    
+    .homePageBoxes nav.ubermenu li.ubermenu-item .ubermenu-content-block.ubermenu-custom-content p,
+     .homePageBoxes nav.ubermenu li.ubermenu-item ul.ubermenu-submenu li.ubermenu-item a.ubermenu-target{
+        font-size: 15px; 
+        min-height: 15px;
+        line-height: 1.4em; 
+        margin-bottom: 8px;
+    }
+    .practices {
+        .col-twenty {
+            width: 20%;
+            &.two {
+                display: none; 
+            }
+            .hoverInfo ul li {
+                line-height: 1.5em;
+            }
+        }
+    }
+    .yourTeam  {        
+        h2 {
+            font-size: 15px !important;
+        }
+         img {
+            width: 100%; 
+        }
+        .authorPosts li a {
+            font-size: 13px;
+        }
+        .col-xs-4:nth-of-type(3n + 4) {
+            clear: both;
+             } 
+    }
+    .practiceAreas .col-md-4 {
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .container {
+        width: 100%;
+    }
+    .flex-caption h3 {
+        font-size: 32px
+    }
+    flexslider.flexslider-home .slides img {
+        width: 100% !important;
+        overflow:hidden; 
+    }    
+    .news  .newsBox:nth-of-type(3n + 4) {
+    clear: both;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .menuFixed.affix-top #collapse-navigation {
+        padding-left: 0px;
+    }
+    .quickFact {
+        display: none;
+    }
+    .practices .col-twenty {
+        padding-left: 5px;
+        padding-right: 0px;        
+        &:first-child {
+            padding-left: 15px;
+        }
+        &:nth-child(5) {
+            padding-right: 15px;
+        }
+        .practice-item {
+            padding: 5px 0;
+            a .practice-icon i {
+                font-size: 30px;
+            }            
+            h5.practice-title  {
+                font-size: 12px;
+            }
+            .hoverInfo {
+                padding-left: 2px;
+                p {
+                    padding: 0px 1px;
+                }
+                ul {
+                    margin-left: 2px;
+                }
+            }
+        }
+    } 
+}
+// Gap in bootstrap 
+@media only screen and (min-width: 479px) and (max-width: 767px){
+    .container {
+        width: 100%;
+    }
+    .flex-caption h3 {
+        font-size: 26px
+    }
+    .newsBox {
+      width: 33%;
+      float: left;
+    }
+     .newsBox:nth-of-type(3n +4 ) {
+        clear: both; 
+        }
+}
+ // menu styling for phones
+@media only screen and (max-width: 479px){
+    #slider-home {
+        .flexslider-home {
+            .slides {
+                .flex-caption {
+                    padding-left: 15px;
+                    padding-right: 15px; 
+                    h3 {
+                        font-size: 18px;
+                        text-align: left;
+                    }
+                }
+                
+            }
+            .gannons-search-sm.gannons-search-home {
+                width: $searchTextBoxWidth280;
+                
+                #searchTextBox {
+                    width: $searchTextBoxWidth280;
+                    margin: 56px 0 0 15px;
+                    .searchText {
+                        font-size: 16px;
+                        margin-left: 12px;
+                    }
+                }
+                #search-form {
+                    text-align: left;
+                    margin-left: 15px;
+                    #search-string {
+                        font-size: 16px;
+                        border-radius: 10px;
+                        height: 30px;
+                        padding: 6px 12px;
+                        width: $searchTextBoxWidth280;
+                    } 
+                }
+            }
+        }
+    }
+    .container {
+        width: 100%;
+    }
+      .newsBox:nth-of-type(2n + 3) {
+        clear: both;
+        }
+}
+
+@media only screen and (max-width: 390px) {
+    .header-phone a, .header-phone .fa-stack {
+        font-size: $baseFontSize * 0.8;
+        margin-right: 0;
+    }
+    div.page-head div.vertical div.container .gannons-search-sm {
+         width: 95%;
+         #search-form input {
+             width: 95%;
+         }
+    .practices, h2.practice {
+          display: none;
+        }
+     } 
+}
+
+/*** Collapsing menu *****/
+@media only screen and (min-width: 0px) and (max-width: 959px){
+    .navbar-collapse.collapse {
+        height: auto !important;
+        padding-bottom:0px; 
+        overflow: visible !important;
+        display: block !important;
+    }
+}
+/** END HOME PAGE RESPONSIVE STYLING ***/
+
+/*** SERVICES PAGE RESPONSIVE STYLING Sibra-SidebarFullwidth ***/
+// Modern laptops 
+@media only screen and (min-width: 1370px) {    
+}
+// full flyout menu breakpoint. 
+@media only screen and (min-width: 970px) and (max-width: 1369px ) {    
+}
+// kinda from phone to  tablet menu styling range
+@media only screen  and (max-width: 969px) {    
+}
+
+// Start of Tablets
+@media only screen and (min-width: 768px) and (max-width: 969px) {    
+}
+// all the way to 767px 
+@media only screen and (max-width: 767px) {    
+}
+
+// Gap in bootstrap 
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    
+}
+
+ // menu styling for phones
+ @media only screen and (max-width: 479px) {    
+ }
+
+
+/*** END SERVICES PAGE RESPONSIVE STYLING Sibra-SidebarFullwidth ***/
+
+
+    
+ 

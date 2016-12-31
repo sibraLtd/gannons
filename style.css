@@ -1,0 +1,19 @@
+/*
+ Theme Name:   Sibra Child
+ Theme URI:    http://sibra.co.uk
+ Description:  lawyers Child Theme
+ Author:       Simon Bragg
+ Author URI:   http://sibra.co.uk
+ Template:     lawyers
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+
+ Text Domain:  lawyers-child
+*/
+
+p {
+    padding: 20px 20px ;
+}
+
+
